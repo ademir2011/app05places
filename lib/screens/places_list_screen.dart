@@ -1,4 +1,5 @@
 import 'package:app05places/providers/great_places.dart';
+import 'package:app05places/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,7 +29,12 @@ class PlacesListScreen extends StatelessWidget {
                             backgroundImage: FileImage(greatPlaces.itemByIndex(i).image),
                           ),
                           title: Text(greatPlaces.itemByIndex(i).title),
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pushNamed(
+                              AppRoutes.PLACE_DETAIL,
+                              arguments: greatPlaces.itemByIndex(i),
+                            );
+                          },
                         ),
                       ),
               ),
